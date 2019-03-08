@@ -8,13 +8,15 @@ app.get('/', function (req, res) {
 });
 
 app.post("/github", function (req, res) {
+
   var sender = req.body.sender;
   var branch = req.body.ref;
 
   if(branch.indexOf('master') > -1 && sender.login === githubUsername){
       deploy(res);
   }
-})
+  res.send("Hi");
+});
 
 app.get('/api', function (req, res) {
   console.log("Tryed Connection");
