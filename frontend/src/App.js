@@ -3,6 +3,29 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+state = {
+ 	greetings:"Hi",
+};
+componentDidMount = () => {
+	this.fetchData();
+};
+fetchData = () => {
+    fetch(new Request ('https://www.maximilian-wick.de/api', {
+            method: 'GET',
+            headers: new Headers({
+                    'Content-Type':'application/json',
+                    'Origin':"https://www.maximilian-wick.de",
+                    'Access-Control-Request-Methode':"GET",
+		    'Access-Control-Request-Headers':"X-Custom-Header",
+            }),
+    }))
+    .then(function(response){
+            return response.json()
+    })
+    .then(function(res){
+	console.log(res);
+    });
+};
   render() {
     return (
       <div className="App">
@@ -19,6 +42,7 @@ class App extends Component {
           >
             Learn React
           </a>
+	  <p>{this.state.greetings}</p>
         </header>
       </div>
     );
