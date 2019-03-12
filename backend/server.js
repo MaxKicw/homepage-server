@@ -1,7 +1,13 @@
 var express = require('express');
 var app = express();
-var childProcess = require('child_process');
-var githubUsername = 'MaxKicw'
+
+// For Webhook Github
+
+const secret = "nosecret";
+const repo = "~/homepage-server";
+const http = require('http');
+const crypto = require('crypto');
+const exec = require('child_process').exec;
 
 //Endpoints
 
@@ -10,13 +16,14 @@ app.get('/', function (req, res) {
 });
 
 app.post("/github", function (req, res) {
-  var sender = req.body.sender;
-  var branch = req.body.ref;
+  req.on('data', function(chunk) {
+      let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
 
-  if(branch.indexOf('master') > -1 && sender.login === githubUsername){
-      deploy(res);
-  }
-  res.send("Hi");
+      if (req.headers['x-hub-signature'] == sig) {
+          exec('cd ' + repo + ' && git pull');
+      }
+  });
+  res.end();
 });
 
 app.get('/api', function (req, res) {
@@ -31,13 +38,3 @@ app.listen(5000, function () {
 });
 
 //Functions
-
-function deploy(res){
-  childProcess.exec('cd /home/max && ./deploy.sh', function(err, stdout, stderr){
-      if (err) {
-       console.error(err);
-       return res.send(500);
-      }
-      res.send(200);
-    });
-}
