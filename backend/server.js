@@ -16,6 +16,7 @@ app.get('/', function (req, res) {
 });
 
 app.post("/github", function (req, res) {
+  console.log("Connection from Webhook");
   req.on('data', function(chunk) {
       let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
 
