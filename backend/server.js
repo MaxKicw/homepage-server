@@ -20,7 +20,7 @@ app.post("/github", function (req, res) {
       let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
 
       if (req.headers['x-hub-signature'] == sig) {
-          exec('cd ' + repo + ' && git pull');
+          exec('cd ' + repo + ' && sudo git pull origin master && echo "pulled" && cd ~/homepage-server/frontend && sudo npm run build');
       }
   });
   res.end();
