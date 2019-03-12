@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var childProcess = require('child_process');
+var githubUsername = 'MaxKicw'
 
 //Endpoints
 
@@ -8,7 +10,6 @@ app.get('/', function (req, res) {
 });
 
 app.post("/github", function (req, res) {
-
   var sender = req.body.sender;
   var branch = req.body.ref;
 
@@ -30,7 +31,6 @@ app.listen(5000, function () {
 });
 
 //Functions
-
 
 function deploy(res){
   childProcess.exec('cd /home/max && ./deploy.sh', function(err, stdout, stderr){
