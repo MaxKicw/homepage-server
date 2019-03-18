@@ -5,7 +5,6 @@ var app = express();
 
 const secret = "nosecret";
 const repo = "~/homepage-server";
-const http = require('http');
 const crypto = require('crypto');
 const exec = require('child_process').exec;
 
@@ -17,13 +16,10 @@ app.get('/', function (req, res) {
 
 app.post("/github", function (req, res) {
   console.log("Connection from Webhook");
-  req.on('data', function(chunk) {
-      let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
-
-      if (req.headers['x-hub-signature'] == sig) {
-          exec('cd ' + repo + ' && sudo git pull origin master && echo "pulled" && sudo npm install && cd ~/homepage-server/frontend && sudo npm run build');
-      }
-  });
+  let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
+  if (req.headers['x-hub-signature'] == sig) {
+      exec('cd ' + repo + ' && sudo git pull origin master && echo "pulled" && sudo npm install && cd ~/homepage-server/frontend && sudo npm run build');
+  }
   res.end();
 });
 
