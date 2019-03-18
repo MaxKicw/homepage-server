@@ -6,7 +6,7 @@ import './App.css';
 
 class App extends Component {
 state = {
- 	greetings:"我叫马克思",
+ 	greetings:"我叫马克",
 };
 componentDidMount = () => {
 	this.fetchData();
