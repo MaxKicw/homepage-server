@@ -7,10 +7,10 @@ var app = express();
 app.use(bodyParser.json()); // must use bodyParser in express
 app.use(webhookHandler); // use our middleware
 
-const repo = "~/homepage-server"
+const path = "~/homepage-server"
 webhookHandler.on('*', function (event, repo, data) {
   console.log("Jawoollll");
-  exec('cd ' + repo + ' && sudo git pull origin master');
+  exec('cd ' + path + ' && sudo git pull origin master');
 });
  
 // For Webhook Github
