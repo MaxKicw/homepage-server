@@ -7,18 +7,13 @@ var app = express();
 app.use(bodyParser.json()); // must use bodyParser in express
 app.use(webhookHandler); // use our middleware
 
+// Webhook 
+
 const path = "~/homepage-server"
 webhookHandler.on('*', function (event, repo, data) {
   console.log("Jawoollll");
   exec('cd ' + path + ' && sudo git pull origin master');
 });
- 
-// For Webhook Github
-
-const secret = "nosecret";
-const repo = "~/homepage-server";
-const crypto = require('crypto');
-const exec = require('child_process').exec;
 
 //Endpoints
 
