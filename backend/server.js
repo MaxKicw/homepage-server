@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var GithubWebHook = require('express-github-webhook');
 var webhookHandler = GithubWebHook({ path: '/github', secret: 'nosecret' });
 var app = express();
