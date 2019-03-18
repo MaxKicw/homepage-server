@@ -2,17 +2,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var GithubWebHook = require('express-github-webhook');
 var webhookHandler = GithubWebHook({ path: '/github', secret: 'nosecret' });
-const exec = require('child_process').exec;
+const shell = require('shelljs');
 var app = express();
 app.use(bodyParser.json()); // must use bodyParser in express
 app.use(webhookHandler); // use our middleware
 
 // Webhook 
 
-const path = "~/homepage-server"
 webhookHandler.on('*', function (event, repo, data) {
   console.log("Jawoollll");
-  exec('cd ' + path + ' && sudo git pull origin master');
+  shell.exec('~/deploy.sh');
 });
 
 //Endpoints
