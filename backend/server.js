@@ -1,6 +1,14 @@
 var express = require('express');
+var GithubWebHook = require('express-github-webhook');
+var webhookHandler = GithubWebHook({ path: '/github', secret: 'nosecret' });
 var app = express();
+app.use(bodyParser.json()); // must use bodyParser in express
+app.use(webhookHandler); // use our middleware
 
+webhookHandler.on('*', function (event, repo, data) {
+  console.log("Jawoollll");
+});
+ 
 // For Webhook Github
 
 const secret = "nosecret";
@@ -14,7 +22,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.post("/github", function (req, res) {
+app.post("/githubkkkk", function (req, res) {
   console.log("Connection from Webhook");
   let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
   if (req.headers['x-hub-signature'] == sig) {
