@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var GithubWebHook = require('express-github-webhook');
-var webhookHandler = GithubWebHook({ path: '/github', secret: 'nosecret' });
+var webhookHandler = GithubWebHook({ path: '/github', secret: 'secret' });
 var app = express();
 app.use(bodyParser.json()); // must use bodyParser in express
 app.use(webhookHandler); // use our middleware
