@@ -11,7 +11,7 @@ app.use(webhookHandler); // use our middleware
 
 webhookHandler.on('*', function (event, repo, data) {
   console.log("Jawoollll");
-  shell.exec('~/deploy.sh');
+  shell.exec('~/deploy/deploy.sh');
 });
 
 //Endpoints
