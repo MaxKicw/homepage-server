@@ -11,11 +11,7 @@ app.use(webhookHandler); // use our middleware
 
 webhookHandler.on('*', function (event, repo, data) {
   console.log("Jawoollll");
-  //shell.exec('~/deploy/deploy.sh');
-  shell.exec('echo "Start Deployment now"');
-  shell.exec('~/homepage-server/ && sudo git pull origin master && sudo npm install');
-  shell.exec('~/homepage-server/frontend && sudo npm run build');
-  shell.exec('echo "Build done"');
+  shell.exec('~/deploy/deploy.sh');
 });
 
 //Endpoints
