@@ -12,9 +12,9 @@ app.use(webhookHandler); // use our middleware
 webhookHandler.on('*', function (event, repo, data) {
   console.log("Jawoollll");
   console.log("Starting Gitpull");
-  exec('~/homepage-server/ && sudo git pull origin master');
+  exec('cd ~/homepage-server/ && sudo git pull origin master');
   console.log("Git-Pull done -> now npm run build")
-  exec('~/homepage-server/frontend && sudo npm run build')
+  exec('cd ~/homepage-server/frontend && sudo npm run build')
   console.log("Build successfull!")
 });
 
