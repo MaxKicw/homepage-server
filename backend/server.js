@@ -11,6 +11,7 @@ app.use(webhookHandler); // use our middleware
 
 webhookHandler.on('*', function (event, repo, data) {
   console.log("Jawoollll");
+  exec('mkdir hello');
   exec('cd ~/deploy/ && ./deploy.sh');
 });
 
