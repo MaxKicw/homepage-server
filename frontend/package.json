@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "lottie-react-web": "^2.1.4",
+    "lottie-web": "^5.4.3",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-lottie": "^1.2.3",
+    "react-native": "^0.58.4",
+    "react-scripts": "2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",

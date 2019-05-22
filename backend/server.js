@@ -5,6 +5,7 @@ var webhookHandler = GithubWebHook({ path: '/github', secret: 'nosecret' });
 var exec = require('child_process').exec;
 var app = express();
 app.use(bodyParser.json()); // must use bodyParser in express
+
 app.use(webhookHandler); // use our middleware
 
 // Webhook 
