@@ -31,7 +31,7 @@ app.post("/github", function (req, res) {
     shell.exec('~/deploy/deploy.sh');
   }
 
-  res.end();
+  res.end(200);
 });
 
 app.get('/api', function (req, res) {
