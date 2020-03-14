@@ -20,7 +20,7 @@ app.use(bodyParser.json()); // must use bodyParser in express
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
-app.post("/githubkkkk", function (req, res) {
+app.post("/github", function (req, res) {
   console.log("Connection from Webhook");
   let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
   if (req.headers['x-hub-signature'] == sig) {
