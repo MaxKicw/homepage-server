@@ -9,6 +9,7 @@
   "author": "maxkicw <m142679@googlemail.com>",
   "license": "MIT",
   "dependencies": {
+    "crypto": "^1.0.1",
     "express": "^4.16.4",
     "shelljs": "^0.8.3"
   }

@@ -1,39 +1,31 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-// var GithubWebHook = require('express-github-webhook');
-// var webhookHandler = GithubWebHook({ path: '/github', secret: 'nosecret' });
+
+const express = require('express');
+const bodyParser = require('body-parser');
+var secret = "nosecret";
+var repo = "~/deploy"
 var exec = require('child_process').exec;
-const shell = require('shelljs')
+var crypto = require('crypto');
 var app = express();
-app.use(bodyParser.json()); // must use bodyParser in express
 
-// app.use(webhookHandler); // use our middleware
+app.use(bodyParser.json()); 
 
-// Webhook 
-
-// webhookHandler.on('*', function (event, repo, data) {
-//   console.log("Jawoollll");
-//   exec('cd ~/deploy/ && ./deploy.sh');
-// });
-
-//Endpoints
-
+//Testpath
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
+
+//Webhook for Deployment
 app.post("/github", function (req, res) {
   console.log("Connection from Webhook");
   let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
-  // if (req.headers['x-hub-signature'] == sig) {
-  //     exec('cd ' + repo + ' && sudo git pull origin master && echo "pulled" && sudo npm install && cd ~/homepage-server/frontend && sudo npm run build');
-  // }
   if (req.headers['x-hub-signature'] == sig) {
-    shell.exec('~/deploy/deploy.sh');
+      exec('cd ' + repo + ' && sudo bash deploy.sh');
   }
 
   res.end(200);
 });
 
+//API Endpoint
 app.get('/api', function (req, res) {
   console.log("Tryed Connection");
   console.log(req);
@@ -42,6 +34,7 @@ app.get('/api', function (req, res) {
   res.send({text:'Hi from the API'});
 });
 
+//Up-Message
 app.listen(5000, function () {
   console.log('Example app listening on port 5000!');
 });
