@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 // var GithubWebHook = require('express-github-webhook');
 // var webhookHandler = GithubWebHook({ path: '/github', secret: 'nosecret' });
 var exec = require('child_process').exec;
+const shell = require('shelljs')
 var app = express();
 app.use(bodyParser.json()); // must use bodyParser in express
 
@@ -23,9 +24,13 @@ app.get('/', function (req, res) {
 app.post("/github", function (req, res) {
   console.log("Connection from Webhook");
   let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex');
+  // if (req.headers['x-hub-signature'] == sig) {
+  //     exec('cd ' + repo + ' && sudo git pull origin master && echo "pulled" && sudo npm install && cd ~/homepage-server/frontend && sudo npm run build');
+  // }
   if (req.headers['x-hub-signature'] == sig) {
-      exec('cd ' + repo + ' && sudo git pull origin master && echo "pulled" && sudo npm install && cd ~/homepage-server/frontend && sudo npm run build');
+    shell.exec('~/deploy/deploy.sh');
   }
+
   res.end();
 });
 
