@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import Query from './components/query/query';
+import CATEGORIES_QUERY from "./querys/category/categories";
 import './App.css';
 
 function App() {
@@ -7,9 +9,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi
-        </p>
+        <Query query={CATEGORIES_QUERY} id={null}>
+        {({data:{categories}})=>{
+          return(<p>{categories[0].name}</p>)
+        }}
+        </Query>
         <a
           className="App-link"
           href="https://reactjs.org"
