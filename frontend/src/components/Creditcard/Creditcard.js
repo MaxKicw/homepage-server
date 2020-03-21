@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Pane} from 'evergreen-ui'
+import '../../App.css';
 
 class Creditcard extends Component {
     state = {  }
@@ -7,7 +8,10 @@ class Creditcard extends Component {
         return ( 
             <Pane
                 width="40vw"
-                height="40vh"
+                className="Creditcard"
+                height="30vw"
+                maxHeight="200px"
+                maxWidth="400px"
                 borderRadius="10px"
                 backgroundColor="#FAE3CD"
                 elevation={3}

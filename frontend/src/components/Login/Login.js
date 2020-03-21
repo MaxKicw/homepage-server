@@ -16,12 +16,13 @@ class Login extends Component{
                 border="muted"
                 width="50vw"
                 height="100vh"
+                className="Login"
                 >
                     <Pane 
                         height="30vh"
-                        width="30vw"
+                        width="80%"
                         marginTop="30vh"
-                        marginLeft="5vw">
+                        marginLeft="10%">
                             <Heading 
                                 size={800}
                                 float="left"
@@ -39,6 +40,7 @@ class Login extends Component{
                             />
                             <Combobox
                                 items={['Private', 'Business']}
+                                width="50%"
                                 float="left"
                                 placeholder="Private"
                                 autocompleteProps={{

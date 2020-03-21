@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Pane, Tablist, Tab} from 'evergreen-ui'
+import '../../App.css';
 
 class Langswitch extends Component {
     state = { 

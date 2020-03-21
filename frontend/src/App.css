@@ -47,3 +47,37 @@
   }
 }
 
+/* // Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .Login{
+    width: 100vw;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .Login{
+    width: 100vw;
+  }
+  .Creditcard{
+    position: absolute;
+    margin: 0 auto;
+    top: 10vh;
+    height: 50%;
+    width: 90%;
+    left: 5%;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+
+}
