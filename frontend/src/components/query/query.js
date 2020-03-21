@@ -15,3 +15,10 @@ const Query = ({children,query,id}) => {
 };
 
 export default Query;
+
+
+// {({data:{articles}})=>{
+//     return(
+//     <p>{articles[0].text}</p>)
+//     }}
+// </Query> 
