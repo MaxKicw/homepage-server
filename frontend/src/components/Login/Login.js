@@ -10,6 +10,7 @@ class Login extends Component{
     }
     render(){
         return(
+            <div className="Login">
             <Pane
                 background="tint1"
                 float="left"
@@ -53,6 +54,7 @@ class Login extends Component{
 
                     </Pane>
             </Pane>
+        </div>
         );
     }
 }
