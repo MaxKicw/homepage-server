@@ -1,83 +1,35 @@
-.App {
-  text-align: center;
+body{
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.card{
-  height: 30vh;
-  width: 30vw;
-  border-radius: 0.5vw;
-  box-shadow: 0px 0px 10px;
-  position: relative;
-  margin: 0 auto;
-  top: 40vh;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* // Extra small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap
-
-// Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {
+/* Mobile */
+@media (max-width: 992px) {
   .Login{
     width: 100vw;
-  }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (max-width: 768px) {
-  .Login{
-    width: 100vw;
+    height: 30vh;
   }
   .Creditcard{
     position: absolute;
-    margin: 0 auto;
-    top: 10vh;
-    height: 50%;
-    width: 90%;
-    left: 5%;
+    width: 100vw;
+    height: 35vh;
+    max-width: 600px;
+    left: 50%;
+    transform: translate(-50%, -60%);
   }
 }
 
-/* // Large devices (desktops, 992px and up) */
-@media (max-width: 992px) {
-
-}
-
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (max-width: 1200px) {
-
+/* Desktop */
+@media (min-width: 992px) {
+  .Login{
+    width: 50vw;
+  }
+  .Creditcard{
+    position: absolute;
+    left: 50vw;
+    top: 30vh;
+    width: 50vw;
+    height: 35vh;
+  }
 }
