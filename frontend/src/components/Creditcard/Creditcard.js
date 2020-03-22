@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Pane} from 'evergreen-ui'
-import Query from '../Query/Query';
 import '../../App.css';
 
 class Creditcard extends Component {
