@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "creditcards",
+  "info": {
+    "name": "Creditcards"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "number": {
+      "type": "biginteger"
+    },
+    "date": {
+      "type": "date"
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "private": {
+      "type": "boolean"
+    }
+  }
+}

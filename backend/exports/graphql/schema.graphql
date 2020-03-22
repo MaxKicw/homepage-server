@@ -46,12 +46,28 @@ type createCategoryPayload {
   category: Category
 }
 
+input createCreditcardInput {
+  data: CreditcardInput
+}
+
+type createCreditcardPayload {
+  creditcard: Creditcards
+}
+
 input createFileInput {
   data: FileInput
 }
 
 type createFilePayload {
   file: UploadFile
+}
+
+input createLoginInput {
+  data: LoginInput
+}
+
+type createLoginPayload {
+  login: Login
 }
 
 input createRoleInput {
@@ -68,6 +84,25 @@ input createUserInput {
 
 type createUserPayload {
   user: UsersPermissionsUser
+}
+
+input CreditcardInput {
+  name: String
+  number: Long
+  date: Date
+  cover: ID
+  private: Boolean
+}
+
+type Creditcards {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  number: Long
+  date: Date
+  cover: UploadFile
+  private: Boolean
 }
 
 """
@@ -100,12 +135,28 @@ type deleteCategoryPayload {
   category: Category
 }
 
+input deleteCreditcardInput {
+  where: InputID
+}
+
+type deleteCreditcardPayload {
+  creditcard: Creditcards
+}
+
 input deleteFileInput {
   where: InputID
 }
 
 type deleteFilePayload {
   file: UploadFile
+}
+
+input deleteLoginInput {
+  where: InputID
+}
+
+type deleteLoginPayload {
+  login: Login
 }
 
 input deleteRoleInput {
@@ -137,6 +188,14 @@ input editCategoryInput {
   articles: [ID]
 }
 
+input editCreditcardInput {
+  name: String
+  number: Long
+  date: Date
+  cover: ID
+  private: Boolean
+}
+
 input editFileInput {
   name: String
   hash: String
@@ -148,6 +207,12 @@ input editFileInput {
   provider: String
   provider_metadata: JSON
   related: [ID]
+}
+
+input editLoginInput {
+  name: String
+  password: String
+  private: Boolean
 }
 
 input editRoleInput {
@@ -191,10 +256,25 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 """
 scalar JSON
 
+type Login {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  password: String
+  private: Boolean
+}
+
+input LoginInput {
+  name: String
+  password: String
+  private: Boolean
+}
+
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Article | createArticlePayload | updateArticlePayload | deleteArticlePayload | Category | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | UploadFile | createFilePayload | updateFilePayload | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Article | createArticlePayload | updateArticlePayload | deleteArticlePayload | Category | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Creditcards | createCreditcardPayload | updateCreditcardPayload | deleteCreditcardPayload | Login | createLoginPayload | updateLoginPayload | deleteLoginPayload | UploadFile | createFilePayload | updateFilePayload | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createArticle(input: createArticleInput): createArticlePayload
@@ -203,6 +283,12 @@ type Mutation {
   createCategory(input: createCategoryInput): createCategoryPayload
   updateCategory(input: updateCategoryInput): updateCategoryPayload
   deleteCategory(input: deleteCategoryInput): deleteCategoryPayload
+  createCreditcard(input: createCreditcardInput): createCreditcardPayload
+  updateCreditcard(input: updateCreditcardInput): updateCreditcardPayload
+  deleteCreditcard(input: deleteCreditcardInput): deleteCreditcardPayload
+  createLogin(input: createLoginInput): createLoginPayload
+  updateLogin(input: updateLoginInput): updateLoginPayload
+  deleteLogin(input: deleteLoginInput): deleteLoginPayload
 
   """Create a new role"""
   createRole(input: createRoleInput): createRolePayload
@@ -232,6 +318,10 @@ type Query {
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
   category(id: ID!): Category
   categories(sort: String, limit: Int, start: Int, where: JSON): [Category]
+  creditcard(id: ID!): Creditcards
+  creditcards(sort: String, limit: Int, start: Int, where: JSON): [Creditcards]
+  login(id: ID!): Login
+  logins(sort: String, limit: Int, start: Int, where: JSON): [Login]
   files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   role(id: ID!): UsersPermissionsRole
 
@@ -273,6 +363,15 @@ type updateCategoryPayload {
   category: Category
 }
 
+input updateCreditcardInput {
+  where: InputID
+  data: editCreditcardInput
+}
+
+type updateCreditcardPayload {
+  creditcard: Creditcards
+}
+
 input updateFileInput {
   where: InputID
   data: editFileInput
@@ -280,6 +379,15 @@ input updateFileInput {
 
 type updateFilePayload {
   file: UploadFile
+}
+
+input updateLoginInput {
+  where: InputID
+  data: editLoginInput
+}
+
+type updateLoginPayload {
+  login: Login
 }
 
 input updateRoleInput {

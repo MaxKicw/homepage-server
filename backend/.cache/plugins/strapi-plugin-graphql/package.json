@@ -1,0 +1,74 @@
+{
+  "_from": "strapi-plugin-graphql@^3.0.0-beta.19.3",
+  "_id": "strapi-plugin-graphql@3.0.0-beta.19.3",
+  "_inBundle": false,
+  "_integrity": "sha512-bbdT/hLdaykmjam6Qn4uWC1hXCR7cZTtWha8+ZXjH6M62Ur1copF5e+RcbZX/Faxx7lIHjIw16jyD0su8TP1qA==",
+  "_location": "/strapi-plugin-graphql",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "strapi-plugin-graphql@^3.0.0-beta.19.3",
+    "name": "strapi-plugin-graphql",
+    "escapedName": "strapi-plugin-graphql",
+    "rawSpec": "^3.0.0-beta.19.3",
+    "saveSpec": null,
+    "fetchSpec": "^3.0.0-beta.19.3"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-beta.19.3.tgz",
+  "_shasum": "cbc888399e86906909a39b2c129db7504ba9ede3",
+  "_spec": "strapi-plugin-graphql@^3.0.0-beta.19.3",
+  "_where": "/Users/maxkicw/Documents/06_wapps/homepage-server/backend",
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "apollo-server-koa": "2.9.12",
+    "dataloader": "^1.4.0",
+    "glob": "^7.1.4",
+    "graphql": "^14.3.0",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-playground-middleware-koa": "^1.6.0",
+    "graphql-tools": "4.0.6",
+    "graphql-type-json": "0.3.1",
+    "graphql-type-long": "^0.1.1",
+    "koa-compose": "^4.1.0",
+    "lodash": "4.17.11",
+    "pluralize": "^7.0.0",
+    "strapi-utils": "3.0.0-beta.19.3"
+  },
+  "deprecated": false,
+  "description": "This is the description of the plugin.",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "koa": "^2.8.0",
+    "rimraf": "3.0.0"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "gitHead": "8a8929e97cde98947fdf60c38b228d34de7854db",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "name": "strapi-plugin-graphql",
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  },
+  "strapi": {
+    "name": "graphql",
+    "icon": "plug",
+    "description": "Description of graphql plugin."
+  },
+  "version": "3.0.0-beta.19.3"
+}

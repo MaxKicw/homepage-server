@@ -4,7 +4,7 @@ import '../../App.css';
 
 class Login extends Component{
     state = {
-        name:null,
+        name:"...",
         password:null,
         version:null,
     }
@@ -28,7 +28,7 @@ class Login extends Component{
                                     float="left"
                                     marginBottom="5vh"
                                     >
-                                    Willkommen</Heading>
+                                    Willkommen, {this.state.name}</Heading>
                                 <TextInputField
                                 placeholder="Nutzername"
                                 onChange={e => this.setState({ name: e.target.value })}

@@ -28,8 +28,8 @@ body{
   .Creditcard{
     position: absolute;
     left: 50vw;
-    top: 30vh;
+    top: 25vh;
     width: 50vw;
-    height: 35vh;
+    height: 45vh;
   }
 }

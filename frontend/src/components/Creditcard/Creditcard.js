@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Pane} from 'evergreen-ui'
+import Query from '../Query/Query';
 import '../../App.css';
 
 class Creditcard extends Component {
@@ -17,6 +18,7 @@ class Creditcard extends Component {
                     elevation={3}
                     hoverElevation={4}
                     float="left">
+                
                 </Pane>
             </div>
          );
