@@ -11,7 +11,7 @@ function App() {
       <Langswitch></Langswitch>
       <Waring></Waring>
       <Login></Login>
-      {/* <Creditcard></Creditcard> */}
+      <Creditcard></Creditcard>
     </div>
   );
 }

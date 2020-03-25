@@ -16,6 +16,10 @@ body{
     height: 35vh;
     max-width: 600px;
     left: 50%;
+    transition: 500ms ease;
+    transform: translate(-50%, -160%);
+  }
+  .Creditcard.active{
     transform: translate(-50%, -60%);
   }
 }
@@ -27,13 +31,19 @@ body{
   }
   .Creditcard{
     position: absolute;
-    left: 50vw;
-    top: 25vh;
+    left: 40vw;
+    top: -100vh;
     width: 50vw;
     height: 45vh;
+    transition: 500ms ease;
+  }
+  .Creditcard.active{
+    top: 25vh;
   }
   .Warning{
     float: right;
     margin: 5px;
   }
 }
+
+

@@ -1,3 +1,4 @@
+//Komponente welche die Warnungen oben rechts rendern
 import React, { Component } from 'react';
 import { Pane , Alert } from 'evergreen-ui'
 import { connect } from "react-redux"
