@@ -1,4 +1,4 @@
-import Apollo from "apollo-boost";
+
 import  ApolloClient from "apollo-boost";
 
 const client = new ApolloClient({

@@ -23,7 +23,7 @@ body{
 /* Desktop */
 @media (min-width: 992px) {
   .Login{
-    width: 50vw;
+    width: 30vw;
   }
   .Creditcard{
     position: absolute;
@@ -31,5 +31,9 @@ body{
     top: 25vh;
     width: 50vw;
     height: 45vh;
+  }
+  .Warning{
+    float: right;
+    margin: 5px;
   }
 }

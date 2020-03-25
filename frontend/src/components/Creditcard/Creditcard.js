@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Pane} from 'evergreen-ui'
+import { connect } from "react-redux"
 import '../../App.css';
 
 class Creditcard extends Component {
-    state = {  }
     render() { 
         return ( 
-            <div className="Creditcard">
-                <Pane
+                <div className="Creditcard">
+                    <Pane
                     position="relative"
                     height="100%"
                     left="5%"
@@ -17,11 +17,28 @@ class Creditcard extends Component {
                     elevation={3}
                     hoverElevation={4}
                     float="left">
-                
-                </Pane>
-            </div>
+                    <p>{this.props.name}</p>
+                    </Pane>
+                </div>
          );
     }
 }
+//REDUX
+
+const mapStateToProps = state => {
+    return{
+        name: state.name,
+        password: state.password,
+        number: state.creditcardNumber,
+        date: state.creditcardDate,
+        version: state.version
+    };
+} 
+
+const mapDispatchToProps = dispatch => {
+    return{
+        
+    }
+}
  
-export default Creditcard;
+export default connect(mapStateToProps,mapDispatchToProps)(Creditcard);
