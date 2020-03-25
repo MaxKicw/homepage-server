@@ -41,7 +41,7 @@ class Login extends Component{
                     border="none"
                     width="100%"
                     height="100vh"
-                    >
+                    >  
                         <Pane 
                             height="30vh"
                             width="80%"
@@ -60,9 +60,9 @@ class Login extends Component{
                                 />
                                 <Button intent={this.state.success} float="right" iconBefore={this.state.icon} onClick={() => this.runLogin(this.props.name,this.props.password)}>{trans[this.props.lng].buttonLogin}</Button>
                         </Pane>
+                        <div className="logo-small-grey"></div>
                 </Pane>
             </div>
-          
         );
     }
 }

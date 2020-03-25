@@ -4,6 +4,32 @@ body{
   height: 100vh;
   width: 100vw;
 }
+.logo{
+  height: 50px;
+  width: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: right;
+  margin-top: 25px;
+  margin-right: 45px;
+}
+.logo.private{
+  background-image: url(./logo_private.svg);
+}
+.logo.business{
+  background-image: url(./logo_business.svg);
+}
+.logo-small-grey{
+  background-image: url(./logo_small_grey.svg);
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: right;
+  top: 10px;
+  left: 20px;
+}
 /* Mobile */
 @media (max-width: 992px) {
   .Login{
@@ -13,14 +39,16 @@ body{
   .Creditcard{
     position: absolute;
     width: 100vw;
-    height: 35vh;
+    height: calc(100vw/1.6);
+    max-width: 480px;
+    max-height: 300px;
     max-width: 600px;
     left: 50%;
     transition: 500ms ease;
-    transform: translate(-50%, -160%);
+    transform: translate(-50%, -260%);
   }
   .Creditcard.active{
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -65%);
   }
 }
 
@@ -34,16 +62,17 @@ body{
     left: 40vw;
     top: -100vh;
     width: 50vw;
-    height: 45vh;
+    height: calc(50vw/1.6);
+    max-height: 300px;
+    max-width: 600px;
     transition: 500ms ease;
   }
   .Creditcard.active{
-    top: 25vh;
+    top: 30vh;
   }
   .Warning{
     float: right;
     margin: 5px;
   }
 }
-
 

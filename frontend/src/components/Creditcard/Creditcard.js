@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pane} from 'evergreen-ui'
+import { Pane, TextInput} from 'evergreen-ui'
 import { connect } from "react-redux"
 import '../../App.css';
 
@@ -14,10 +14,18 @@ class Creditcard extends Component {
                     left="5%"
                     width="90%"
                     borderRadius="10px"
-                    backgroundColor="#0D400F"
+                    background="radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF5C00 0%, #B49A14 43.03%, #0D400F 100%)"
                     elevation={3}
                     hoverElevation={4}
                     float="left">
+                        <div className="logo private"></div>
+                        <TextInput
+                            position="relative"
+                            top="70%"
+                            left="50%"
+                            width="40%"
+                            placeholder="Dein Name"
+                        />
                     </Pane>
                 </div>
             );
@@ -30,10 +38,18 @@ class Creditcard extends Component {
                     left="5%"
                     width="90%"
                     borderRadius="10px"
-                    backgroundColor="#12566B"
+                    background="radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF7A00 0%, #B41414 43.03%, #12566B 100%)"
                     elevation={3}
                     hoverElevation={4}
                     float="left">
+                        <div className="logo business"></div>
+                        <TextInput
+                            position="relative"
+                            top="70%"
+                            left="50%"
+                            width="40%"
+                            placeholder="Dein Name"
+                        />
                     </Pane>
                 </div>
          )  ;
@@ -60,3 +76,4 @@ const mapDispatchToProps = dispatch => {
 }
  
 export default connect(mapStateToProps,mapDispatchToProps)(Creditcard);
+
