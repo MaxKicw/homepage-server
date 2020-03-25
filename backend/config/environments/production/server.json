@@ -1,7 +1,7 @@
 {
   "host": "www.maximilian-wick.de",
   "port": "${process.env.PORT || 1337}",
-  "production": true,
+  "production": false,
   "proxy": {
     "enabled": false
   },
