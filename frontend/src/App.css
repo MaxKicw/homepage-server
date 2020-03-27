@@ -68,7 +68,7 @@ body{
     max-height: 300px;
     max-width: 600px;
     left: 50%;
-    transition: 500ms ease;
+    transition: 800ms cubic-bezier(.36, .02, .27, 1.24);
     transform: translate(-50%, -260%);
   }
   .Creditcard.active{
@@ -98,7 +98,7 @@ body{
     height: calc(50vw/1.6);
     max-height: 300px;
     max-width: 600px;
-    transition: 500ms ease;
+    transition: 800ms cubic-bezier(.36, .02, .27, 1.24);
   }
   .Creditcard.active{
     top: 30vh;
