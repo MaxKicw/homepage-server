@@ -39,8 +39,8 @@ class Creditcard extends Component {
                     width="90%"
                     borderRadius="10px"
                     background="radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF7A00 0%, #B41414 43.03%, #12566B 100%)"
-                    elevation={3}
-                    hoverElevation={4}
+                    elevation={8}
+                    hoverElevation={9}
                     float="left">
                         <div className="logo business"></div>
                         <TextInput

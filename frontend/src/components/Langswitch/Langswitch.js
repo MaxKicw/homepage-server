@@ -11,8 +11,8 @@ class Langswitch extends Component {
     render() { 
         return ( 
             <div className="Langswitch">
-              <Pane height={120} float="right">
-              <Tablist marginBottom={16} flexBasis={240} marginRight={24}>
+              <Pane height={120} float="right" marginTop="20px">
+              <Tablist marginBottom={16} flexBasis={240} marginRight={24}  backgroundColor="white" borderRadius="5px">
                 {this.props.lngTabs.map((tab, index) => (
                   <Tab
                     key={tab}
@@ -36,7 +36,8 @@ class Langswitch extends Component {
 const mapStateToProps = state => {
   return{
       lng: state.lng,
-      lngTabs: state.lngTabs
+      lngTabs: state.lngTabs,
+      private: state.private
   };
 } 
 

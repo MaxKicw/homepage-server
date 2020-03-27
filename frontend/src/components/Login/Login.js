@@ -11,6 +11,7 @@ class Login extends Component{
         success:"none",
         icon:"lock"
     }
+    
     runLogin = () => {
         if(this.props.password != ""){
             client.query({query:LOGINS_QUERY,variables:{password:this.props.password}})
@@ -33,6 +34,7 @@ class Login extends Component{
             this.setState({icon:"warning-sign"}); 
         }
     }
+
     render(){
         return(
             <div className="Login">
@@ -45,7 +47,7 @@ class Login extends Component{
                         <Pane 
                             height="30vh"
                             width="80%"
-                            marginTop="30vh"
+                            marginTop="40vh"
                             marginLeft="10%">
                                 <Heading 
                                     size={800}
@@ -53,12 +55,13 @@ class Login extends Component{
                                     >
                                     {trans[this.props.lng].welcomeLogin}</Heading>
                                 <TextInputField
+                                className="loginInput"
                                 description={trans[this.props.lng].descriptionLogin}
                                 placeholder={trans[this.props.lng].fieldLogin}
                                 onChange={e => this.props.onPasswordInput(e.target.value)}
                                 type="password"
                                 />
-                                <Button intent={this.state.success} float="right" iconBefore={this.state.icon} onClick={() => this.runLogin(this.props.name,this.props.password)}>{trans[this.props.lng].buttonLogin}</Button>
+                                <Button intent={this.state.success} className="loginButton" float="right" iconBefore={this.state.icon} onClick={() => this.runLogin(this.props.name,this.props.password)}>{trans[this.props.lng].buttonLogin}</Button>
                         </Pane>
                         <div className="logo-small-grey"></div>
                 </Pane>

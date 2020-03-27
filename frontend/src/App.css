@@ -3,7 +3,29 @@ body{
   margin: 0;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
+.Overlay{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./svgs/overlay.svg);
+  z-index: -1;
+}
+
+@keyframes Gradient{
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+  
+}
+
 .logo{
   height: 50px;
   width: 100px;
@@ -14,16 +36,16 @@ body{
   margin-right: 45px;
 }
 .logo.private{
-  background-image: url(./logo_private.svg);
+  background-image: url(./svgs/logo_private.svg);
 }
 .logo.business{
-  background-image: url(./logo_business.svg);
+  background-image: url(./svgs/logo_business.svg);
 }
 .logo-small-grey{
-  background-image: url(./logo_small_grey.svg);
+  background-image: url(./svgs/logo_small_grey.svg);
   height: 50px;
   width: 50px;
-  position: absolute;
+  position: fixed;
   background-size: contain;
   background-repeat: no-repeat;
   float: right;
@@ -35,6 +57,8 @@ body{
   .Login{
     width: 100vw;
     height: 30vh;
+    position: relative;
+    top: 32vh;
   }
   .Creditcard{
     position: absolute;
@@ -48,7 +72,16 @@ body{
     transform: translate(-50%, -260%);
   }
   .Creditcard.active{
-    transform: translate(-50%, -65%);
+    transform: translate(-50%, -40%);
+  }
+  .Warning{
+    position: fixed;
+    top: 90vh;
+    left: 20px;
+  }
+  .Langswitch{
+    position: fixed;
+    left:55vw;
   }
 }
 
@@ -71,8 +104,42 @@ body{
     top: 30vh;
   }
   .Warning{
-    float: right;
-    margin: 5px;
+    position: fixed;
+    top: 90vh;
+    left: 20px;
+  }
+  .Background{
+    min-height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: -3000px;
+    z-index: -2;
+    background: white;
+    background-size: 200% 200%;
+    -webkit-animation: Gradient 20s ease infinite;
+    animation: Gradient 20s ease infinite;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    overflow: hidden; 
+    transition: 1000ms ease;
+    opacity: 0;
+  }
+  .Background.true{
+    background: linear-gradient( -45deg, #021a03, #0D400F, #021f03 );
+    background-size: 200% 200%;
+    left: 0px;
+    opacity: 1;
+  }
+  .Background.false{
+    background: linear-gradient( -45deg, #041e25, #12566B, #01161d );
+    background-size: 200% 200%;
+    left: 0px;
+    opacity: 1;
+  }
+  .Langswitch{
+    position: fixed;
+    left:85vw;
   }
 }
 
