@@ -18,6 +18,7 @@ class Login extends Component{
             .then((response)=>{
                     try{
                         this.props.onSetVersion(response.data.logins[0].private)
+                        this.props.onSetCategories(response.data.logins[0].categories)
                         this.props.onWarning({state:false,text:""})
                         this.setState({success:"success"});
                         this.setState({icon:"tick-circle"});
@@ -78,7 +79,8 @@ const mapStateToProps = state => {
         private: state.private,
         warning: state.warning,
         lng: state.lng,
-        verified: state.verified
+        verified: state.verified,
+        categories: state.categories
     };
 } 
 
@@ -86,7 +88,8 @@ const mapDispatchToProps = dispatch => {
     return{
         onPasswordInput: (password) => dispatch({type:"SET_PASSWORD",password:password}),
         onSetVersion: (prvt) => dispatch({type:"SET_VERSION",prvt:prvt}),
-        onWarning: (state,text) => dispatch({type:"SET_WARNING",state:state,text:text})
+        onWarning: (state,text) => dispatch({type:"SET_WARNING",state:state,text:text}),
+        onSetCategories: (categories) => dispatch({type:"SET_CATEGORIES",categories:categories})
     }
 }
 

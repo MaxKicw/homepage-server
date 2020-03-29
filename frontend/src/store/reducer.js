@@ -5,6 +5,7 @@ const initialState = {
     warning:{state:false,text:""},
     private:"",
     verified:"",
+    categories:"",
     lngTabs: ['DE', 'ENG', '汉语'],
     lng:0,
 }
@@ -40,6 +41,11 @@ const reducer = (state = initialState,action) => {
             return{
                 ...state,
                 verified: action.state
+            }
+        case "SET_CATEGORIES":
+            return{
+                ...state,
+                categories: action.categories
             }
     }
     return state;

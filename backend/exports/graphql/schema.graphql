@@ -209,7 +209,7 @@ input editFileInput {
 input editLoginInput {
   password: String
   private: Boolean
-  categroies: [ID]
+  categories: [ID]
 }
 
 input editRoleInput {
@@ -259,13 +259,13 @@ type Login {
   updated_at: DateTime!
   password: String
   private: Boolean
-  categroies(sort: String, limit: Int, start: Int, where: JSON): [Category]
+  categories(sort: String, limit: Int, start: Int, where: JSON): [Category]
 }
 
 input LoginInput {
   password: String
   private: Boolean
-  categroies: [ID]
+  categories: [ID]
 }
 
 """The `Long` scalar type represents 52-bit integers"""
