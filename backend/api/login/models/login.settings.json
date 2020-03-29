@@ -16,7 +16,7 @@
     "private": {
       "type": "boolean"
     },
-    "categroies": {
+    "categories": {
       "collection": "category"
     }
   }
