@@ -43,7 +43,8 @@ class Creditcard extends Component {
     }
 
     render() { 
-        let cssClasses =['Creditcard active', this.props.verified ? 'verified':'', this.props.private ? 'private':'business'] 
+        let cssClasses =['Creditcard active', this.props.verified ? 'verified':'', this.props.private ? 'private':'business']
+        let cssLogo = ['logo',this.props.private ? 'private':'business'] 
         let today = moment().format('MMDDYYYYmmHH');
         if(this.props.private !== ""){
             return ( 
@@ -57,7 +58,7 @@ class Creditcard extends Component {
                     elevation={3}
                     hoverElevation={4}
                     float="left">
-                        <div className="logo private"></div>
+                        <div className={cssLogo.join(' ')}></div>
                         <TextInput
                             position="relative"
                             backgroundColor="none"
