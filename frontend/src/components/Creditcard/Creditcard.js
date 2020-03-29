@@ -16,7 +16,7 @@ class Creditcard extends Component {
 
     runSetup = () => {
         let date = moment().format('YYYY-MM-DD');
-        if(this.props.name != ""){
+        if(this.props.name !== ""){
             client.mutate({mutation:ADD_CREDITCARD,variables:{name:this.props.name,date:date,private:this.props.private,password:this.props.password}})
             .then((response)=>{
                 try{
@@ -63,7 +63,7 @@ class Creditcard extends Component {
                             backgroundColor="none"
                             top="70%"
                             width="40%"
-                            left="50%"
+                            left="10%"
                             placeholder={trans[this.props.lng].yourName}
                             onChange={e => this.props.onNameInput(e.target.value)}
                         />
@@ -76,17 +76,17 @@ class Creditcard extends Component {
                             >{this.props.name}</Heading>
                         <Text
                             position="absolute"
-                            top="73%"
+                            top="50%"
                             left="10%"
                             color="white"
                             >{today}</Text>
                          <Button 
                             intent="success"
                             className="addCreditcardButton" 
-                            position="relative"
+                            position="absolute"
                             top="70%"
                             zIndex="3"
-                            left="40%"
+                            left="50%"
                             intent={this.state.success}
                             iconBefore={this.state.icon} 
                             onClick={() => this.runSetup(this.props.name)}>

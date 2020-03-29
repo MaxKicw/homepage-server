@@ -69,7 +69,6 @@ body{
     position: absolute;
     width: 100vw;
     height: calc(100vw/1.6);
-    max-width: 480px;
     max-height: 300px;
     max-width: 600px;
     left: 50%;
