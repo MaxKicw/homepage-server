@@ -6,7 +6,6 @@ import '../../App.css';
 class Langswitch extends Component {
     state = { 
         selectedIndex: 0,
-       
      }
     render() { 
         return ( 
@@ -26,6 +25,7 @@ class Langswitch extends Component {
                 ))}
               </Tablist>
               </Pane>
+              <div className="logo-small-grey"></div>
             </div>
          );
     }

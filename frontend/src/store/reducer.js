@@ -36,6 +36,11 @@ const reducer = (state = initialState,action) => {
                 ...state,
                 warning: action.state
             }
+        case "SET_VERIFIED":
+            return{
+                ...state,
+                verified: action.state
+            }
     }
     return state;
 }

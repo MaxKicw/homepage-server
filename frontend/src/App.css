@@ -1,10 +1,10 @@
 body{
   padding: 0;
   margin: 0;
-  height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow:hidden
 }
+
 .Overlay{
   position: fixed;
   height: 100vh;
@@ -59,6 +59,11 @@ body{
     height: 30vh;
     position: relative;
     top: 22vh;
+    opacity: 1;
+    transition: 300ms ease;
+  }
+  .Login.verified{
+    opacity: 0;
   }
   .Creditcard{
     position: absolute;
@@ -71,8 +76,17 @@ body{
     transition: 800ms cubic-bezier(.36, .02, .27, 1.24);
     transform: translate(-50%, -260%);
   }
+  .Creditcard.private>div{
+    background:radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF5C00 0%, #B49A14 43.03%, #0D400F 100%);
+  }
+  .Creditcard.business>div{
+    background:radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF7A00 0%, #B41414 43.03%, #12566B 100%);
+  }
   .Creditcard.active{
     transform: translate(-50%, -40%);
+  }
+  .Creditcard.verified{
+    transform: translate(-50%, 100%);
   }
   .Warning{
     position: fixed;
@@ -81,7 +95,18 @@ body{
   }
   .Langswitch{
     position: fixed;
-    left:55vw;
+    left:70vw;
+  }
+  .Welcome{
+    position: absolute;
+    top: 30vh;
+    left: 10vw;
+    width: 80vw;
+    opacity: 0;
+    transition: 300ms ease;
+  }
+  .Welcome.verified{
+    opacity: 1;
   }
 }
 
@@ -89,6 +114,11 @@ body{
 @media (min-width: 992px) {
   .Login{
     width: 30vw;
+    opacity: 1;
+    transition: 300ms ease;
+  }
+  .Login.verified{
+    opacity: 0;
   }
   .Creditcard{
     position: absolute;
@@ -100,8 +130,18 @@ body{
     max-width: 600px;
     transition: 800ms cubic-bezier(.36, .02, .27, 1.24);
   }
+  .Creditcard.private>div{
+    background:radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF5C00 0%, #B49A14 43.03%, #0D400F 100%);
+  }
+  .Creditcard.business>div{
+    background:radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF7A00 0%, #B41414 43.03%, #12566B 100%);
+  }
   .Creditcard.active{
     top: 30vh;
+  }
+  .Creditcard.verified{
+    left: 40vw;
+    
   }
   .Warning{
     position: fixed;
@@ -116,8 +156,8 @@ body{
     z-index: -2;
     background: white;
     background-size: 200% 200%;
-    -webkit-animation: Gradient 20s ease infinite;
-    animation: Gradient 20s ease infinite;
+    -webkit-animation: Gradient 10s ease infinite;
+    animation: Gradient 10s ease infinite;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -132,14 +172,31 @@ body{
     opacity: 1;
   }
   .Background.false{
-    background: linear-gradient( -45deg, #041e25, #12566B, #01161d );
-    background-size: 200% 200%;
+    background: linear-gradient( -45deg, #1c738b, rgb(92, 16, 16), #01161d );
+    background-size: 500% 500%;
     left: 0px;
     opacity: 1;
   }
   .Langswitch{
     position: fixed;
     left:85vw;
+  }
+  .Welcome{
+    position: absolute;
+    top: 37vh;
+    left: 10vw;
+    width: 20vw;
+    opacity: 0;
+    transition: 300ms ease;
+  }
+  .Welcome.verified{
+    opacity: 1;
+  }
+  .Footer{
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    top: calc(100vh - 100px);
   }
 }
 

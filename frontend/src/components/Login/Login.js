@@ -36,8 +36,9 @@ class Login extends Component{
     }
 
     render(){
+        let cssClasses =['Login', this.props.verified ? 'verified':''] 
         return(
-            <div className="Login">
+            <div className={cssClasses.join(' ')}>
                 <Pane
                     float="left"
                     border="none"
@@ -63,7 +64,6 @@ class Login extends Component{
                                 />
                                 <Button intent={this.state.success} className="loginButton" float="right" iconBefore={this.state.icon} onClick={() => this.runLogin()}>{trans[this.props.lng].buttonLogin}</Button>
                         </Pane>
-                        <div className="logo-small-grey"></div>
                 </Pane>
             </div>
         );
@@ -74,17 +74,16 @@ class Login extends Component{
 
 const mapStateToProps = state => {
     return{
-        name: state.name,
         password: state.password,
         private: state.private,
         warning: state.warning,
-        lng: state.lng
+        lng: state.lng,
+        verified: state.verified
     };
 } 
 
 const mapDispatchToProps = dispatch => {
     return{
-        onNameInput: (name) => dispatch({type:"SET_NAME",name:name}),
         onPasswordInput: (password) => dispatch({type:"SET_PASSWORD",password:password}),
         onSetVersion: (prvt) => dispatch({type:"SET_VERSION",prvt:prvt}),
         onWarning: (state,text) => dispatch({type:"SET_WARNING",state:state,text:text})

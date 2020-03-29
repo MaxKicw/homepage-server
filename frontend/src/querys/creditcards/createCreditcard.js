@@ -3,20 +3,20 @@
 import gql from "graphql-tag";
 
 const ADD_CREDITCARD  = gql`
-    mutation($name: String!){
+    mutation($name: String!,$date: Date!,$private:Boolean!,$password:String!){
         createCreditcard(input: {
         data: {
             name: $name,
-            date: 12344,
-            private:true,
-            password:tinder
+            private:$private,
+            Password:$password,
+            date:$date
         }
         }) {
         creditcard {
             name
-            date
             private
-            password
+            Password
+            date
         }
         }
     }
