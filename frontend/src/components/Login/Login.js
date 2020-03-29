@@ -61,7 +61,7 @@ class Login extends Component{
                                 onChange={e => this.props.onPasswordInput(e.target.value)}
                                 type="password"
                                 />
-                                <Button intent={this.state.success} className="loginButton" float="right" iconBefore={this.state.icon} onClick={() => this.runLogin(this.props.name,this.props.password)}>{trans[this.props.lng].buttonLogin}</Button>
+                                <Button intent={this.state.success} className="loginButton" float="right" iconBefore={this.state.icon} onClick={() => this.runLogin()}>{trans[this.props.lng].buttonLogin}</Button>
                         </Pane>
                         <div className="logo-small-grey"></div>
                 </Pane>

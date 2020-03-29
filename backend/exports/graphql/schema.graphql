@@ -88,10 +88,9 @@ type createUserPayload {
 
 input CreditcardInput {
   name: String
-  number: Long
   date: Date
-  cover: ID
   private: Boolean
+  Password: String
 }
 
 type Creditcards {
@@ -99,10 +98,9 @@ type Creditcards {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  number: Long
   date: Date
-  cover: UploadFile
   private: Boolean
+  Password: String
 }
 
 """
@@ -190,10 +188,9 @@ input editCategoryInput {
 
 input editCreditcardInput {
   name: String
-  number: Long
   date: Date
-  cover: ID
   private: Boolean
+  Password: String
 }
 
 input editFileInput {

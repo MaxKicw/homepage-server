@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
-import { Pane, TextInput} from 'evergreen-ui'
+import { Pane, TextInput, Button} from 'evergreen-ui'
 import { connect } from "react-redux"
+import client from "../../utils/apolloClients";
+import ADD_CREDITCARD from '../../querys/creditcards/createCreditcard';
+import trans from '../../translation/translation';
 import '../../App.css';
 
 class Creditcard extends Component {
+
+    runSetup = () => {
+        if(this.props.name != ""){
+            client.mutate({query:ADD_CREDITCARD,variables:{name:this.props.name}})
+            .then((response)=>{
+                   console.log(response)
+                }   
+            )
+        }else if(this.props.password === ""){
+            console.log("A")
+        }
+    }
+
     render() { 
         if(this.props.private){
             return ( 
@@ -26,6 +42,14 @@ class Creditcard extends Component {
                             width="40%"
                             placeholder="Dein Name"
                         />
+                        <Button 
+                            intent={this.state.success} 
+                            className="addCreditcardButton" 
+                            float="right" 
+                            iconBefore={this.state.icon} 
+                            onClick={() => this.runSetup(this.props.name)}>{trans[this.props.lng].buttonLogin}
+                        </Button>
+
                     </Pane>
                 </div>
             );
