@@ -10,14 +10,14 @@
     "timestamps": true
   },
   "attributes": {
-    "name": {
-      "type": "string"
-    },
     "password": {
       "type": "string"
     },
     "private": {
       "type": "boolean"
+    },
+    "categroies": {
+      "collection": "category"
     }
   }
 }
