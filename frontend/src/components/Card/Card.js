@@ -7,31 +7,57 @@ class Card extends Component {
 
     render() { 
         let cssClasses =['Card']
-        // Card mit Bild, Titel, Text
         // Card mit Titel, Text
-        // Card mit Bild und Titel
         if(this.props.image != null){
             let imageURL = "url("+this.props.image.url+")";
-            return ( 
-                <div className={cssClasses.join(' ')}>
-                    <Pane
-                        elevation={2}
-                        hoverElevation={3}
-                        borderRadius="5px"
-                    >
+            if(this.props.text != null){
+                return ( 
+                    // Card mit Bild, Titel, Text
+                    <div className={cssClasses.join(' ')}>
                         <Pane
-                            position="relative"
-                            height="35vh"
-                            width="100%"
-                            backgroundImage={imageURL}
-                        ></Pane>
-                        <Heading size={700} margin="10px">{this.props.title} </Heading>
-                        <Paragraph size={400} margin="10px">{this.props.text.substring(0, 100)+"..."}</Paragraph>
-                        <Badge color="green" margin="10px">{this.props.categories.name}</Badge>
-                        <Badge margin="10px">{this.props.published}</Badge>
-                    </Pane>
-                </div>
-            );
+                            elevation={2}
+                            hoverElevation={3}
+                            borderRadius="5px"
+                        >
+                            <Pane
+                                position="relative"
+                                height="35vh"
+                                width="100%"
+                                backgroundImage={imageURL}
+                                backgroundSize="cover"
+                            ></Pane>
+                            <Heading size={700} margin="10px">{this.props.title} </Heading>
+                            <Paragraph size={400} margin="10px">{this.props.text.substring(0, 100)+"..."}</Paragraph>
+                            <Badge color="green" margin="10px">{this.props.categories.name}</Badge>
+                            <Badge margin="10px">{this.props.published}</Badge>
+                        </Pane>
+                    </div>
+                );
+                  // Card mit Bild und Titel
+            }else{
+                return ( 
+                    // Card mit Bild, Titel, Text
+                    <div className={cssClasses.join(' ')}>
+                        <Pane
+                            elevation={2}
+                            hoverElevation={3}
+                            borderRadius="5px"
+                        >
+                            <Pane
+                                position="relative"
+                                height="70vh"
+                                width="100%"
+                                backgroundImage={imageURL}
+                                backgroundSize="cover"
+                            >
+                                <Badge color="teal" marginLeft="10px" marginTop="65vh">{this.props.categories.name}</Badge>
+                                <Badge marginLeft="10px" marginTop="65vh">{this.props.published}</Badge>
+                            </Pane>
+                        </Pane>
+                    </div>
+                );
+            }
+            
         }else{
             return ( 
                 <div className={cssClasses.join(' ')}>
@@ -42,7 +68,7 @@ class Card extends Component {
                     >
                         <Heading size={700} margin="10px" marginTop="20vh">{this.props.title}</Heading>
                         <Paragraph size={600} margin="10px">{this.props.text.substring(0, 200)+"..."}</Paragraph>
-                        <Badge color="green" margin="10px">{this.props.categories.name}</Badge>
+                        <Badge color="purple" margin="10px">{this.props.categories.name}</Badge>
                         <Badge margin="10px">{this.props.published}</Badge>
                     </Pane>
                 </div>
