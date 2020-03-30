@@ -22,6 +22,7 @@ class Login extends Component{
                         this.props.onWarning({state:false,text:""})
                         this.setState({success:"success"});
                         this.setState({icon:"tick-circle"});
+                        document.body.classList.add('active');
                     }catch(error){
                         this.props.onWarning({state:true,text:trans[this.props.lng].alertPasswordWrong})
                         this.setState({success:"danger"});

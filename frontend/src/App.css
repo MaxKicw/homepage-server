@@ -2,7 +2,10 @@ body{
   padding: 0;
   margin: 0;
   width: 100vw;
-  overflow:hidden
+  overflow: hidden;
+}
+body.active{
+  overflow: visible;
 }
 
 .Overlay{
@@ -107,6 +110,28 @@ body{
   .Welcome.verified{
     opacity: 1;
   }
+  .Box{
+    width: 100vw;
+    position: absolute;
+    top: 150vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    opacity: 0;
+    display: none;
+  }
+  .Box.active{
+    opacity: 1;
+    display: flex;
+  }
+  .Card{
+    width: 80vw;
+    margin-left: 10vw;
+    margin-bottom: 5vw;
+    border-radius: 5px;
+    box-shadow: 0 16px 32px 0 var(--card-shadow-color, rgba(0,15,30,0.08));
+  }
 }
 
 /* Desktop */
@@ -191,11 +216,28 @@ body{
   .Welcome.verified{
     opacity: 1;
   }
-  .Footer{
+  .Box{
     width: 100vw;
-    height: 100px;
     position: absolute;
-    top: calc(100vh - 100px);
+    top: 120vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    opacity: 0;
+    display: none;
+  }
+  .Box.active{
+    opacity: 1;
+    display: flex;
+  }
+  .Card{
+    width: 25vw;
+    margin-left: 6.25vw;
+    margin-bottom: 6.25vw;
+    border-radius: 5px;
+    box-shadow: 0 16px 32px 0 var(--card-shadow-color, rgba(0,15,30,0.08));
+    background-color: rgb(255, 255, 255);
   }
 }
 

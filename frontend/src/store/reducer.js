@@ -8,6 +8,7 @@ const initialState = {
     categories:"",
     lngTabs: ['DE', 'ENG', '汉语'],
     lng:0,
+    articles:[]
 }
 
 const reducer = (state = initialState,action) => {
@@ -46,6 +47,11 @@ const reducer = (state = initialState,action) => {
             return{
                 ...state,
                 categories: action.categories
+            }
+        case "SET_ARTICLES":
+            return{
+                ...state,
+                articles: action.articles
             }
     }
     return state;
