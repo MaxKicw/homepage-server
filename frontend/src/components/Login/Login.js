@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Pane, TextInputField,Text, Heading, Button } from 'evergreen-ui'
+import { Pane, TextInputField,toaster, Heading, Button } from 'evergreen-ui'
 import { connect } from "react-redux"
 import client from "../../utils/apolloClients";
 import LOGINS_QUERY from '../../querys/logins/logins';
@@ -19,19 +19,18 @@ class Login extends Component{
                     try{
                         this.props.onSetVersion(response.data.logins[0].private)
                         this.props.onSetCategories(response.data.logins[0].categories)
-                        this.props.onWarning({state:false,text:""})
                         this.setState({success:"success"});
                         this.setState({icon:"tick-circle"});
                         document.body.classList.add('active');
                     }catch(error){
-                        this.props.onWarning({state:true,text:trans[this.props.lng].alertPasswordWrong})
+                        toaster.warning('Oops',{description: trans[this.props.lng].alertPasswordWrong})
                         this.setState({success:"danger"});
                         this.setState({icon:"ban-circle"});
                     }
                 }   
             )
         }else if(this.props.password === ""){
-            this.props.onWarning({state:true,text:trans[this.props.lng].passwordHintLogin})
+            toaster.danger('Oops',{description: trans[this.props.lng].passwordHintLogin})
             this.setState({success:"warning"});
             this.setState({icon:"warning-sign"}); 
         }
@@ -78,7 +77,6 @@ const mapStateToProps = state => {
     return{
         password: state.password,
         private: state.private,
-        warning: state.warning,
         lng: state.lng,
         verified: state.verified,
         categories: state.categories
@@ -89,7 +87,6 @@ const mapDispatchToProps = dispatch => {
     return{
         onPasswordInput: (password) => dispatch({type:"SET_PASSWORD",password:password}),
         onSetVersion: (prvt) => dispatch({type:"SET_VERSION",prvt:prvt}),
-        onWarning: (state,text) => dispatch({type:"SET_WARNING",state:state,text:text}),
         onSetCategories: (categories) => dispatch({type:"SET_CATEGORIES",categories:categories})
     }
 }

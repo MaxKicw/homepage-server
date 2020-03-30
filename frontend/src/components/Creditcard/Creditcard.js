@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pane, TextInput, Button, Text, Heading} from 'evergreen-ui'
+import { Pane, TextInput, Button, Text, Heading, toaster} from 'evergreen-ui'
 import { connect } from "react-redux"
 import client from "../../utils/apolloClients";
 import ADD_CREDITCARD from '../../querys/creditcards/createCreditcard';
@@ -20,15 +20,13 @@ class Creditcard extends Component {
             client.mutate({mutation:ADD_CREDITCARD,variables:{name:this.props.name,date:date,private:this.props.private,password:this.props.password}})
             .then((response)=>{
                 try{
-                    let data = response.data.createCreditcard.creditcard;
-                    this.props.onWarning({state:false,text:""})
                     this.props.isVerified({state:true});
                     this.setState({success:"success"});
                     this.setState({icon:"tick-circle"});
                     //Weiter mit dem Prozess
                 }catch(error){
                     console.log("Error")
-                    this.props.onWarning({state:true,text:trans[this.props.lng].alertErrorCreateCreditcard})
+                    toaster.warning('Oops',{description: trans[this.props.lng].alertErrorCreateCreditcard})
                     this.setState({success:"danger"});
                     this.setState({icon:"ban-circle"});
                 }
@@ -36,7 +34,7 @@ class Creditcard extends Component {
             )
         }else if(this.props.name === ""){
             console.log("Empty")
-            this.props.onWarning({state:true,text:trans[this.props.lng].alertEmptyName})
+            toaster.warning('Oops',{description: trans[this.props.lng].alertEmptyName})
             this.setState({success:"warning"});
             this.setState({icon:"warning-sign"}); 
         }
@@ -118,7 +116,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return{
         onNameInput: (name) => dispatch({type:"SET_NAME",name:name}),
-        onWarning: (state,text) => dispatch({type:"SET_WARNING",state:state,text:text}),
         isVerified: (state) => dispatch({type:"SET_VERIFIED",state:state})
     }
 }

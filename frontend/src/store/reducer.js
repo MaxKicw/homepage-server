@@ -2,7 +2,6 @@
 const initialState = {
     name:"",
     password:"",
-    warning:{state:false,text:""},
     private:"",
     verified:"",
     categories:"",
@@ -32,11 +31,6 @@ const reducer = (state = initialState,action) => {
             return{
                 ...state,
                 private: action.prvt
-            }
-        case "SET_WARNING":
-            return{
-                ...state,
-                warning: action.state
             }
         case "SET_VERIFIED":
             return{

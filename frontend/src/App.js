@@ -5,7 +5,6 @@ import Welcome from './components/Welcome/Welcome';
 import Creditcard from './components/Creditcard/Creditcard';
 import Box from './components/Box/Box';
 import Langswitch from './components/Langswitch/Langswitch';
-import Waring from './components/Warning/Warning';
 import Background from './components/Background/Background';
 import './App.css';
 
@@ -17,7 +16,6 @@ function App() {
         <title>Maximilian Wick</title>
       </Helmet>
       <Langswitch/>
-        <Waring/>
           <Login/>
             <Welcome/>
           <Creditcard/>
