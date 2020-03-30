@@ -37,8 +37,8 @@ const zh = {
     alertErrorCreateCreditcard: '东西去错，试五小时',
     alertEmptyName: '写下来你的名字在那里',
     yourName: '你的名字',
-    welcomeTextHeader: 'Herzlich Willkommen auf meiner Seite,',
-    welcomeTextUnder: 'Ich habe dir eine persönlichen Feed zusammengestellt, schau dich um. Viel Spaß!'
+    welcomeTextHeader: '大家好在我的Homepage,',
+    welcomeTextUnder: '你可以读很多故事我写了。很多笑啊'
 }
 const trans = [de,eng,zh]
 export default trans;
