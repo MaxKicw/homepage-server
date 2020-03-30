@@ -25,6 +25,7 @@ class Card extends Component {
                                 width="100%"
                                 backgroundImage={imageURL}
                                 backgroundSize="cover"
+                                borderRadius="5px"
                             ></Pane>
                             <Heading size={700} margin="10px">{this.props.title} </Heading>
                             <Paragraph size={400} margin="10px">{this.props.text.substring(0, 100)+"..."}</Paragraph>
@@ -49,6 +50,7 @@ class Card extends Component {
                                 width="100%"
                                 backgroundImage={imageURL}
                                 backgroundSize="cover"
+                                borderRadius="5px"
                             >
                                 <Badge color="teal" marginLeft="10px" marginTop="65vh">{this.props.categories.name}</Badge>
                                 <Badge marginLeft="10px" marginTop="65vh">{this.props.published}</Badge>
