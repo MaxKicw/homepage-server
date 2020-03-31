@@ -9,14 +9,8 @@ class Box extends Component {
 
     getArticles = () => {
 
-        let resp = this.props.categories;
-        let categoriesArray = [];
-        resp.map(obj=>{
-            categoriesArray.push(obj.name)
-        })
-        console.log(categoriesArray);
-        client.query({query:FILTER_ARTICLES_QUERY,variables:{categories:categoriesArray}})
-        .then((response)=>{
+        client.watchQuery({query:FILTER_ARTICLES_QUERY,pollInterval:6000,variables:{categories:this.props.categories}})
+        .subscribe((response)=>{
                 try{
                     this.props.onReveiveArticle(response.data.articles)
                 }catch(error){
@@ -26,25 +20,14 @@ class Box extends Component {
         )
     }
 
-    // renderCards = () => {
-    //     if(this.props.verified){
-    //         let articles = this.props.articles;
-    //         for(let i=0;i<articles.length;i++){
-    //             return(
-    //                 <Card></Card>
-    //             )
-    //         }
-    //     }
-    // }
-
     render() { 
         let cssClasses =['Box', this.props.verified ? 'active':'']
         if(this.props.verified){this.getArticles()};
         return ( 
             <div className={cssClasses.join(' ')}>
-               {this.props.articles.map((article)=>{
+               {this.props.articles.map((article, key)=>{
                    return(
-                       <Card title={article.title} text={article.text} published={article.published} image={article.image} categories={article.category}/>
+                       <Card title={article.title} text={article.text} published={article.published} image={article.image} categories={article.category} id={key}/>
                    );
                })}
             </div>

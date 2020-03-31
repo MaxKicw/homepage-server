@@ -84,7 +84,6 @@ class Creditcard extends Component {
                             className="addCreditcardButton" 
                             position="absolute"
                             top="70%"
-                            zIndex="3"
                             left="50%"
                             intent={this.state.success}
                             iconBefore={this.state.icon} 

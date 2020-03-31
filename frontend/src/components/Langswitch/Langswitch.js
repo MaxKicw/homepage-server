@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Pane, Tablist, Tab} from 'evergreen-ui'
 import { connect } from "react-redux"
+import {Link} from 'react-router-dom';
 import '../../App.css';
 
 class Langswitch extends Component {
@@ -25,7 +26,7 @@ class Langswitch extends Component {
                 ))}
               </Tablist>
               </Pane>
-              <div className="logo-small-grey"></div>
+              <Link to="/" className="logo-small-grey"></Link>
             </div>
          );
     }

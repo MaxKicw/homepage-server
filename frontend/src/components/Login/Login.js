@@ -14,14 +14,13 @@ class Login extends Component{
     
     runLogin = () => {
         if(this.props.password != ""){
-            client.query({query:LOGINS_QUERY,variables:{password:this.props.password}})
-            .then((response)=>{
+            client.watchQuery({query:LOGINS_QUERY,pollInterval:6000,variables:{password:this.props.password}})
+            .subscribe((response)=>{
                     try{
                         this.props.onSetVersion(response.data.logins[0].private)
                         this.props.onSetCategories(response.data.logins[0].categories)
                         this.setState({success:"success"});
                         this.setState({icon:"tick-circle"});
-                        document.body.classList.add('active');
                     }catch(error){
                         toaster.warning('Oops',{description: trans[this.props.lng].alertPasswordWrong})
                         this.setState({success:"danger"});
@@ -36,8 +35,13 @@ class Login extends Component{
         }
     }
 
+    expandBody = () => {
+        if(this.props.verified){document.body.classList.add('active');}
+    }
+
     render(){
         let cssClasses =['Login', this.props.verified ? 'verified':''] 
+        this.expandBody();
         return(
             <div className={cssClasses.join(' ')}>
                 <Pane
