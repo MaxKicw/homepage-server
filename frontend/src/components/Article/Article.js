@@ -10,7 +10,7 @@ class Article extends Component {
         let cssClasses =['Article']
         this.props.onCurrentArticle(this.props.location.pathname,this.props.articles);
         let imageURL;
-        try{ imageURL = "url("+this.props.image.url+")"}catch{imageURL="none"}
+        try{ imageURL = "url("+this.props.currentArticle.image.url+")"}catch{imageURL="none"}
         return ( 
             <div className={cssClasses.join(' ')}>
                 <Pane

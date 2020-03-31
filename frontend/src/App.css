@@ -283,6 +283,8 @@ a:link{
   .Header{
     height: 70vh;
     width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .Heading{
     position: relative;
