@@ -5,11 +5,23 @@ import client from "../../utils/apolloClients";
 import LOGINS_QUERY from '../../querys/logins/logins';
 import trans from '../../translation/translation';
 import '../../App.css';
+import { empty } from "apollo-boost";
 
 class Login extends Component{
     state={
         success:"none",
         icon:"lock"
+    }
+
+    componentDidMount= () =>{
+        if(this.props.password != ""){
+            try{
+                this.runLogin();
+            }catch{
+                console.log("No Setup")
+            }
+        
+        }
     }
     
     runLogin = () => {
@@ -62,6 +74,7 @@ class Login extends Component{
                                     {trans[this.props.lng].welcomeLogin}</Heading>
                                 <TextInputField
                                 className="loginInput"
+                                label=""
                                 description={trans[this.props.lng].descriptionLogin}
                                 placeholder={trans[this.props.lng].fieldLogin}
                                 onChange={e => this.props.onPasswordInput(e.target.value)}
@@ -83,7 +96,8 @@ const mapStateToProps = state => {
         private: state.private,
         lng: state.lng,
         verified: state.verified,
-        categories: state.categories
+        categories: state.categories,
+        currentArticle: state.currentArticle
     };
 } 
 

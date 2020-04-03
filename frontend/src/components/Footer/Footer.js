@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
-import {Pane, Popover, Text, Button } from 'evergreen-ui'
+import {Paragraph, Tooltip} from 'evergreen-ui'
 import { connect } from "react-redux"
+import {Link} from 'react-router-dom';
 import trans from '../../translation/translation';
 import '../../App.css';
 
 class Footer extends Component {
 
+    logMeOut = () => {
+        localStorage.clear();
+        window.location.reload(); 
+    }
+
     render() { 
-        let cssClasses =['Footer', this.props.verified ? 'verified':''] 
+        let cssClasses =['Footer'] 
             return ( 
                 <div className={cssClasses.join(' ')}>
-                    <Pane
-                        width="20%">
-                        <Popover
-                            content={
-                                <Pane
-                                width={240}
-                                height={240}
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="center"
-                                flexDirection="column"
-                                >
-                                </Pane>
-                            }
-                            >
-                            <Button margin="30px">2020 Maximilian Wick</Button>
-                            </Popover>
-                    </Pane>
+                    <div className="Footerlinks">
+                        <Link margin="20px" color="black" to="/" >{trans[this.props.lng].home}</Link>
+                        <Link margin="20px" color="black" to="/" onClick={() => this.logMeOut()}>{trans[this.props.lng].logout}</Link>
+                    </div>
+                    <Tooltip content={trans[this.props.lng].codeWithLove}>
+                        <Paragraph className="Footernote"  display="inline">2020 Maximilian Wick</Paragraph>
+                    </Tooltip>
                 </div>
             )
    
@@ -39,9 +34,7 @@ class Footer extends Component {
 const mapStateToProps = state => {
     return{
         name: state.name,
-        private: state.private,
         lng: state.lng,
-        verified: state.verified
     };
 } 
 

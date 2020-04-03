@@ -6,9 +6,10 @@ const initialState = {
     verified:"",
     categories:"",
     lngTabs: ['DE', 'ENG', '汉语'],
+    lngNames: ['de','eng','zh'],
     lng:0,
     articles:[],
-    currentArticle:""
+    currentArticle:{zh_text:"",zh_title:"",article_id:"",published:"",image:{url:"/uploads/a4b54d7c74614344b96511f46c5b95a5.jpg",__typename:"UploadFile"},category:{name:"Woodworking",__typename:"Category"},__typename:"Article"}
 }
 
 //Falls schonmal eingeloggt
@@ -21,7 +22,6 @@ if(localStorage.getItem('categories')!= null){initialState.categories = JSON.par
 if(localStorage.getItem('articles')!= null){initialState.articles = JSON.parse(localStorage.getItem('articles'));}
 if(localStorage.getItem('currentArticle')!= null||undefined){initialState.currentArticle = JSON.parse(localStorage.getItem('currentArticle'));}
 
-console.log(initialState.name)
 
 const reducer = (state = initialState,action) => {
     switch(action.type){
@@ -82,6 +82,8 @@ const reducer = (state = initialState,action) => {
                 ...state,
                 currentArticle: currentArticle
             }
+        default:
+            console.log("REDUCER_DONT_KNOW_WHAT_TO_DO");
     }
     return state;
 }

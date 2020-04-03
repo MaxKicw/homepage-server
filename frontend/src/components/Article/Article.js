@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Heading,Pane, Paragraph,Badge} from 'evergreen-ui'
 import { connect } from "react-redux"
 import ReactMarkdown from "react-markdown"
+import RelatedArticles from "../Article/RelatedArticles";
+import Comments from '../Article/Comments';
+import Footer from '../Footer/Footer';
 import '../../App.css';
 
 class Article extends Component {
@@ -10,6 +13,9 @@ class Article extends Component {
         let cssClasses =['Article']
         this.props.onCurrentArticle(this.props.location.pathname,this.props.articles);
         let imageURL;
+        let articleObj = this.props.currentArticle;
+        let lngtext = articleObj[Object.keys(articleObj)[0]];
+        let lngtitle = articleObj[Object.keys(articleObj)[1]];
         try{ imageURL = "url("+this.props.currentArticle.image.url+")"}catch{imageURL="none"}
         return ( 
             <div className={cssClasses.join(' ')}>
@@ -18,20 +24,19 @@ class Article extends Component {
                     backgroundImage={imageURL}
                 >
                     <Badge 
-                    color="green" 
-                    margin="10px"
-                    position="relative"
-                    left="19vw"
-                    top="55vh"
-                    >Viel Spaß</Badge>
+                    className="Badge"
+                    >{this.props.currentArticle.category.name}</Badge>
                     <Heading 
                         className="Heading"
                         size={900}
-                    >{this.props.currentArticle.title}</Heading>
+                    >{lngtitle}</Heading>
                 </Pane>
                 <Pane
                     className="Textblock"
-                ><Paragraph size={500}><ReactMarkdown source={this.props.currentArticle.text}/></Paragraph></Pane>
+                ><Paragraph size={500}><ReactMarkdown source={lngtext}/></Paragraph></Pane>
+                <RelatedArticles/>
+                <Comments/>
+                <Footer/>
             </div>
         );
     }
@@ -40,7 +45,10 @@ class Article extends Component {
 const mapStateToProps = state => {
     return{
         currentArticle: state.currentArticle,
-        articles: state.articles
+        articles: state.articles,
+        lng: state.lng,
+        lngNames: state.lngNames,
+        categories: state.categories
     };
 } 
 

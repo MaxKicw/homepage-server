@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "comments",
+  "info": {
+    "name": "Comments"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "comments": {
+      "type": "json"
+    }
+  }
+}

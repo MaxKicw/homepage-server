@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Heading, Button} from 'evergreen-ui'
+import {Heading} from 'evergreen-ui'
 import { connect } from "react-redux"
 import trans from '../../translation/translation';
 import '../../App.css';

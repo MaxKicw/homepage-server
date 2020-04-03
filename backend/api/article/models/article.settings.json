@@ -10,10 +10,10 @@
     "timestamps": true
   },
   "attributes": {
-    "text": {
+    "de_text": {
       "type": "richtext"
     },
-    "title": {
+    "de_title": {
       "type": "string"
     },
     "image": {
@@ -28,6 +28,21 @@
     "category": {
       "model": "category",
       "via": "articles"
+    },
+    "eng_text": {
+      "type": "richtext"
+    },
+    "zh_text": {
+      "type": "richtext"
+    },
+    "eng_title": {
+      "type": "string"
+    },
+    "zh_title": {
+      "type": "string"
+    },
+    "article_id": {
+      "type": "uid"
     }
   }
 }

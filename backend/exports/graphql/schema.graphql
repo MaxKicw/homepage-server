@@ -2,19 +2,29 @@ type Article {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  text: String
-  title: String
+  de_text: String
+  de_title: String
   image: UploadFile
   published: Date
   category: Category
+  eng_text: String
+  zh_text: String
+  eng_title: String
+  zh_title: String
+  article_id: String
 }
 
 input ArticleInput {
-  text: String
-  title: String
+  de_text: String
+  de_title: String
   image: ID
   published: Date
   category: ID
+  eng_text: String
+  zh_text: String
+  eng_title: String
+  zh_title: String
+  article_id: String
 }
 
 type Category {
@@ -28,6 +38,17 @@ type Category {
 input CategoryInput {
   name: String
   articles: [ID]
+}
+
+input CommentInput {
+  comments: JSON
+}
+
+type Comments {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  comments: JSON
 }
 
 input createArticleInput {
@@ -44,6 +65,14 @@ input createCategoryInput {
 
 type createCategoryPayload {
   category: Category
+}
+
+input createCommentInput {
+  data: CommentInput
+}
+
+type createCommentPayload {
+  comment: Comments
 }
 
 input createCreditcardInput {
@@ -133,6 +162,14 @@ type deleteCategoryPayload {
   category: Category
 }
 
+input deleteCommentInput {
+  where: InputID
+}
+
+type deleteCommentPayload {
+  comment: Comments
+}
+
 input deleteCreditcardInput {
   where: InputID
 }
@@ -174,16 +211,25 @@ type deleteUserPayload {
 }
 
 input editArticleInput {
-  text: String
-  title: String
+  de_text: String
+  de_title: String
   image: ID
   published: Date
   category: ID
+  eng_text: String
+  zh_text: String
+  eng_title: String
+  zh_title: String
+  article_id: String
 }
 
 input editCategoryInput {
   name: String
   articles: [ID]
+}
+
+input editCommentInput {
+  comments: JSON
 }
 
 input editCreditcardInput {
@@ -271,7 +317,7 @@ input LoginInput {
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Article | createArticlePayload | updateArticlePayload | deleteArticlePayload | Category | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Creditcards | createCreditcardPayload | updateCreditcardPayload | deleteCreditcardPayload | Login | createLoginPayload | updateLoginPayload | deleteLoginPayload | UploadFile | createFilePayload | updateFilePayload | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Article | createArticlePayload | updateArticlePayload | deleteArticlePayload | Category | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Comments | createCommentPayload | updateCommentPayload | deleteCommentPayload | Creditcards | createCreditcardPayload | updateCreditcardPayload | deleteCreditcardPayload | Login | createLoginPayload | updateLoginPayload | deleteLoginPayload | UploadFile | createFilePayload | updateFilePayload | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createArticle(input: createArticleInput): createArticlePayload
@@ -280,6 +326,9 @@ type Mutation {
   createCategory(input: createCategoryInput): createCategoryPayload
   updateCategory(input: updateCategoryInput): updateCategoryPayload
   deleteCategory(input: deleteCategoryInput): deleteCategoryPayload
+  createComment(input: createCommentInput): createCommentPayload
+  updateComment(input: updateCommentInput): updateCommentPayload
+  deleteComment(input: deleteCommentInput): deleteCommentPayload
   createCreditcard(input: createCreditcardInput): createCreditcardPayload
   updateCreditcard(input: updateCreditcardInput): updateCreditcardPayload
   deleteCreditcard(input: deleteCreditcardInput): deleteCreditcardPayload
@@ -315,6 +364,8 @@ type Query {
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
   category(id: ID!): Category
   categories(sort: String, limit: Int, start: Int, where: JSON): [Category]
+  comment(id: ID!): Comments
+  comments(sort: String, limit: Int, start: Int, where: JSON): [Comments]
   creditcard(id: ID!): Creditcards
   creditcards(sort: String, limit: Int, start: Int, where: JSON): [Creditcards]
   login(id: ID!): Login
@@ -358,6 +409,15 @@ input updateCategoryInput {
 
 type updateCategoryPayload {
   category: Category
+}
+
+input updateCommentInput {
+  where: InputID
+  data: editCommentInput
+}
+
+type updateCommentPayload {
+  comment: Comments
 }
 
 input updateCreditcardInput {

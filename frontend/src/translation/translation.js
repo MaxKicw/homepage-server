@@ -10,7 +10,13 @@ const de = {
     alertEmptyName: 'Hier kannst du deinen Namen eingeben! Kann auch ein fiktiver Name sein.',
     yourName: 'Dein Name',
     welcomeTextHeader: 'Herzlich Willkommen auf meiner Seite,',
-    welcomeTextUnder: 'Ich habe dir eine persönlichen Feed zusammengestellt, schau dich um. Viel Spaß!'
+    welcomeTextUnder: 'Ich habe dir eine persönlichen Feed zusammengestellt, schau dich um. Viel Spaß!',
+    codeWithLove:'Mit Liebe und <> von mir entwickelt. Check die Artikel zu Development aus!',
+    home:'Startseite',
+    logout:'Abmelden',
+    relatedArticles:'Das könnte Dich auch interessieren:',
+    comments:'Dein Kommentar',
+    post:'Posten'
 }
 const eng = {
     welcomeLogin: 'Welcome',
@@ -24,7 +30,13 @@ const eng = {
     alertEmptyName: 'Please note down your name here or use a phantasy name',
     yourName: 'Your name',
     welcomeTextHeader: 'Welcome to my homepage,',
-    welcomeTextUnder: 'I´ve created a personalized feed for you, check it out. Have fun!'
+    welcomeTextUnder: 'I´ve created a personalized feed for you, check it out. Have fun!',
+    codeWithLove:'Developed with love and <> by my self! Check out articels of the category Development',
+    home:'Home',
+    logout:'Logout',
+    relatedArticles:'Those articles could be also interesting to you: ',
+    comments:'Your comment',
+    post:'Post'
 }
 const zh = {
     welcomeLogin: '嗨，我的朋友',
@@ -38,7 +50,13 @@ const zh = {
     alertEmptyName: '写下来你的名字在那里',
     yourName: '你的名字',
     welcomeTextHeader: '大家好在我的Homepage,',
-    welcomeTextUnder: '你可以读很多故事我写了。很多笑啊'
+    welcomeTextUnder: '你可以读很多故事我写了。很多笑啊',
+    codeWithLove:'我写这个首页，看看Development的故事',
+    home:'来首页',
+    logout:'登出',
+    relatedArticles:'这个故事你可以也喜欢:',
+    comments:'你的短信',
+    post:'发送'
 }
 const trans = [de,eng,zh]
 export default trans;
