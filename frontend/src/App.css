@@ -68,9 +68,23 @@ a:link{
   top: 50px;
   left: 6vw;
 }
+.logo-small-trans{
+  background-image: url(./svgs/logo_small_trans.svg);
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: right;
+  top: 50px;
+  left: 6vw;
+}
 /* Mobile */
 @media (max-width: 992px) {
   .logo-small-grey{
+    top: 10px;
+  }
+  .logo-small-trans{
     top: 10px;
   }
   .Login{
@@ -160,18 +174,15 @@ a:link{
   }
   .RelatedArticles{
     margin: 0 auto;
-    width: 100vw;
-    /* flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    display: flex;
-    overflow-x: scroll; */
     overflow: auto;
+    padding-bottom: 15vw;
+    padding: 25px;
     white-space: nowrap;
   }
   .RelatedArticles .Card{
     display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   .relatedTitle{
     margin: 0 auto;
@@ -331,7 +342,8 @@ a:link{
   }
   .Card{
     width: 25vw;
-    margin-left: 6.25vw;
+    margin-left: 3.125vw;
+    margin-right: 3.125vw;
     margin-bottom: 6.25vw;
     border-radius: 5px;
     box-shadow: 0 16px 32px 0 var(--card-shadow-color, rgba(0,15,30,0.08));

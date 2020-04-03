@@ -37,7 +37,7 @@ class Card extends Component {
                                     backgroundSize="cover"
                                     borderRadius="5px"
                                 ></Pane>
-                                <Heading size={700} margin="10px">{this.props.title} </Heading>
+                                <Heading size={700} overflowX="hidden" margin="10px">{this.props.title} </Heading>
                                 <Paragraph size={400} overflowX="hidden" margin="10px">{this.props.text.substring(0, 100)+"..."}</Paragraph>
                                 <Badge color="green" margin="10px">{this.props.categories.name}</Badge>
                                 <Badge margin="10px">{this.props.published}</Badge>

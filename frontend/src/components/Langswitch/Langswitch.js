@@ -14,6 +14,15 @@ class Langswitch extends Component {
         isTop: true,
      }
 
+     componentDidMount() {
+      document.addEventListener('scroll', () => {
+        const isTop = window.scrollY < 430;
+        if (isTop !== this.state.isTop) {
+            this.setState({ isTop })
+        }
+      });
+    }
+
      componentDidUpdate() {
         this.getArticles();
     }
@@ -37,7 +46,6 @@ class Langswitch extends Component {
       client.watchQuery({query:query,pollInterval:6000,variables:{categories:this.props.categories}})
       .subscribe((response)=>{
               try{
-                  console.log(response.data.articles)
                   this.props.onReveiveArticle(response.data.articles)
               }catch(error){
 
@@ -47,6 +55,7 @@ class Langswitch extends Component {
   }
 
     render() { 
+        let cssClasses = [this.state.isTop ? 'logo-small-trans' : 'logo-small-grey'] 
         return ( 
           <div className="Menu">
             <div className="Langswitch">
@@ -65,7 +74,7 @@ class Langswitch extends Component {
                 ))}
               </Tablist>
               </Pane>
-              <Link to="/" className="logo-small-grey"></Link>
+              <Link to="/" className={cssClasses}></Link>
             </div>
           </div>
          );
