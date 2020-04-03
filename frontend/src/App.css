@@ -205,6 +205,12 @@ a:link{
     margin-top: 10px;
     margin: 0 auto;
   }
+  .Comments{
+    width: 85vw;
+    margin: 0 auto;
+    margin-bottom: 10vh;
+    margin-top: 5vh;
+  }
   .Footer{
     width: 100vw;
     height: 20vh;
