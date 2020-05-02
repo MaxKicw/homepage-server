@@ -48,7 +48,7 @@ const zh = {
     passwordHintLogin: '你可以找到卡后面的密码我给你',
     alertErrorCreateCreditcard: '东西去错，试五小时',
     alertEmptyName: '写下来你的名字在那里',
-    yourName: '你的名字',
+    yourName: '用户名',
     welcomeTextHeader: '大家好在我的Homepage,',
     welcomeTextUnder: '你可以读很多故事我写了。很多笑啊',
     codeWithLove:'我写这个首页，看看Development的故事',
