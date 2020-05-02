@@ -116,10 +116,10 @@ a:link{
     background:radial-gradient(71.43% 227.24% at 96.23% 5.29%, #FF7A00 0%, #B41414 43.03%, #12566B 100%);
   }
   .Creditcard.active{
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -30%);
   }
   .Creditcard.verified{
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 120%);
   }
   .Warning{
     position: fixed;
